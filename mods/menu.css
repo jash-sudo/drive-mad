@@ -1,0 +1,18 @@
+@import url('./theme.css');
+#mod-toggle,#mod-panel{font-family:Arial,sans-serif;box-sizing:border-box;color:#f4f4f6;z-index:100000;position:fixed}
+#mod-toggle{right:20px;top:20px;background:#f4ff62;color:#17181d;border:0;border-radius:12px;padding:13px 18px;font-weight:800;cursor:pointer;box-shadow:0 4px 20px #0003}
+#mod-panel{right:20px;top:76px;width:330px;max-width:calc(100vw - 24px);max-height:calc(100dvh - 92px);overflow:auto;border:1px solid #ffffff25;border-radius:18px;padding:22px;background:#14161cf5;box-shadow:0 20px 70px #0005;backdrop-filter:blur(16px);font-size:14px}
+#mod-panel[hidden]{display:none}#mod-panel *{box-sizing:border-box}
+#mod-panel h2{font-size:24px;letter-spacing:-1px;margin:5px 0 8px}#mod-panel h3{font-size:11px;letter-spacing:2px;color:#9c9ea9;margin:24px 0 12px}
+#mod-panel p{font-size:12px;line-height:1.6;color:#a5a8b5;margin:8px 0}
+#mod-panel button,#mod-panel select,#mod-panel input{font:inherit;accent-color:#f4ff62}
+#mod-panel button,#mod-panel select,#mod-panel input[type=number]{background:#242730;border:1px solid #3a3d47;border-radius:8px;color:#f5f5f5;padding:10px;min-width:0}
+#mod-panel button{cursor:pointer}#mod-panel button:hover{border-color:#f4ff62}#mod-panel button:disabled{opacity:.4;cursor:wait}
+#mod-panel :focus-visible,#mod-toggle:focus-visible{outline:3px solid #f4ff62;outline-offset:3px}
+#mod-panel .row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:10px 0}
+#mod-panel .row>*{flex:1}#mod-panel label.row span{flex:4}#mod-panel input[type=checkbox]{width:20px;height:20px;flex:0 0 20px}
+#mod-panel .row select{flex:0 0 100px}
+#mod-panel .skins{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}#mod-panel .skin{font-size:11px;padding:9px 3px}#mod-panel .skin i{display:block;width:25px;height:17px;border-radius:3px;margin:0 auto 8px;border-bottom:5px solid #0c0d12;background:var(--swatch)}
+#mod-panel .skin[aria-pressed=true]{border-color:#f4ff62;background:#343728}#mod-panel input[type=color]{width:50px;height:32px;border:0;background:none;padding:0}
+#mod-panel .eyebrow{color:#f4ff62;font-size:10px;font-weight:800;letter-spacing:2px}#mod-panel .status{border-top:1px solid #ffffff16;padding-top:13px;min-height:40px}#mod-panel a{color:#c8ccd7;text-decoration:none;font-size:12px}
+@media(max-width:600px){#mod-toggle{top:12px;right:12px}#mod-panel{top:64px;right:12px;max-height:calc(100dvh - 76px);padding:18px}}
