@@ -883,3 +883,33 @@ function firebaseDeinit() {}
 function currentTimeSecondsRound() {
     return Math.round(Date.now() / 1000);
 }
+/* --- DRIVE MAD ENGINE OVERLAY CORE --- */
+(function() {
+    window.addEventListener('load', () => {
+        const modHUD = document.createElement('div');
+        modHUD.style = 'position:fixed; bottom:10px; left:10px; background:rgba(0,0,0,0.85); color:#00ffcc; border:2px solid #00ffcc; padding:12px; font-family:monospace; z-index:999999; border-radius:6px;';
+        modHUD.innerHTML = '<b style="color:#fff;">MOD ACTIVATED</b><br><span id="hud-status">System Standby...</span>';
+        document.body.appendChild(modHUD);
+
+        // Core Tick Hijack
+        let driveLoop = null;
+        window.addEventListener('keydown', (e) => {
+            // PRESS "Q" key to start Automated Auto-Drive Frame-Loop
+            if (e.key === 'q' || e.key === 'Q') {
+                if (!driveLoop) {
+                    document.getElementById('hud-status').innerText = "🤖 AUTO-DRIVE ACTIVE";
+                    driveLoop = setInterval(() => {
+                        window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight', code: 'ArrowRight', bubbles: true }));
+                        setTimeout(() => {
+                            window.dispatchEvent(new KeyboardEvent('keyup', { key: 'ArrowRight', code: 'ArrowRight', bubbles: true }));
+                        }, 25);
+                    }, 50);
+                } else {
+                    clearInterval(driveLoop);
+                    driveLoop = null;
+                    document.getElementById('hud-status').innerText = "System Standby...";
+                }
+            }
+        });
+    });
+})();
